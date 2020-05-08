@@ -1,7 +1,7 @@
 export type remoteApp = {
   name: string;
   url: string;
-  iconName: string;
+  icon?: string;
 }
 
 export type remoteAppsConfig = {

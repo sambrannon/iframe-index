@@ -1,0 +1,11 @@
+import { remoteAppsConfig } from '../types';
+
+export const remoteApps: remoteAppsConfig = {
+  apps: [
+    {
+      name: 'App Name',
+      url: 'https://example-url.com',
+      icon: require('../config/icons/icon-nameOfIcon.svg'),
+    },
+  ]
+};

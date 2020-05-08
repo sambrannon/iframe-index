@@ -18,14 +18,14 @@ class App extends Component<{}, AppState> {
   }
 
   render() {
-    const { name, url, iconName } = this.state.currentApp;
+    const { name, url, icon } = this.state.currentApp;
 
     return (
       <div className="app">
         <div className="app__links">
           {this.state.allApps.map(app => (
             <div>
-              {app.name}
+              <img src={app.icon} alt={app.name} />
             </div>
           ))}
         </div>

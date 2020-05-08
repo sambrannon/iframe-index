@@ -1,7 +1,9 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # App Specific
-src/config
+src/config/config.ts
+src/config/icons/*
+!src/config/icons/icon-example.svg
 
 # dependencies
 /node_modules

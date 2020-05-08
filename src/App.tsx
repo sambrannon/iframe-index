@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { remoteApp } from './types';
+import { remoteApps } from './config/config';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface AppState {
+  allApps: remoteApp[];
+  currentApp: remoteApp;
+}
+
+class App extends Component<{}, AppState> {
+  componentWillMount() {
+    const apps = remoteApps.apps || [];
+
+    this.setState({
+      allApps: apps,
+      currentApp: apps[1],
+    });
+  }
+
+  render() {
+    const { name, url, iconName } = this.state.currentApp;
+
+    return (
+      <div className="app">
+        <div className="app__links">
+          {this.state.allApps.map(app => (
+            <div>
+              {app.name}
+            </div>
+          ))}
+        </div>
+        <div className="app__frame">
+          <iframe
+            title={name}
+            src={url}
+          />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;

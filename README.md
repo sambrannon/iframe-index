@@ -2,6 +2,10 @@
 
 This small React app helps you consolidate multiple websites.
 
+## WIP
+
+Needs to be Dockerized...
+
 ## Configuring
 
 Copy the config example

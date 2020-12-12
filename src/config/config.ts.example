@@ -1,4 +1,8 @@
-import { remoteAppsConfig } from '../types';
+import { remoteAppsConfig, siteConfig } from '../types';
+
+export const site: siteConfig = {
+  title: 'My App title',
+}
 
 export const remoteApps: remoteAppsConfig = {
   apps: [

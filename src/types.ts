@@ -7,3 +7,7 @@ export type remoteApp = {
 export type remoteAppsConfig = {
   apps?: remoteApp[];
 }
+
+export type siteConfig = {
+  title: string;
+}

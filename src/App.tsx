@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { remoteApp } from './types';
-import { remoteApps } from './config/config';
+import { remoteApps, site } from './config/config';
 
 import './styles/App.scss';
 
@@ -13,6 +13,8 @@ interface AppState {
 class App extends Component<{}, AppState> {
   componentWillMount() {
     const apps = remoteApps.apps || [];
+
+    document.title = site.title;
 
     this.setState({
       allApps: apps,

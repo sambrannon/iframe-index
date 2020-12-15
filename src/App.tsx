@@ -18,15 +18,23 @@ class App extends Component<{}, AppState> {
 
     this.setState({
       allApps: apps,
-      loadedApps: [],
+      loadedApps: [apps[0]],
       currentApp: apps[0],
     });
   }
 
-  updateFrame(app: remoteApp) {
+  loadFrame(app: remoteApp) {
     this.setState({
-      currentApp: app,
+      loadedApps: [...this.state.loadedApps, app],
     });
+  }
+
+  updateFrame(app: remoteApp) {
+    if (!this.state.loadedApps.includes(app)) {
+      this.loadFrame(app);
+    }
+
+    this.setState({ currentApp: app });
   }
 
   isCurrentApp(app: remoteApp) {
@@ -36,8 +44,6 @@ class App extends Component<{}, AppState> {
   }
 
   render() {
-    const { name, url } = this.state.currentApp;
-
     return (
       <div className="app">
         <div className="app__links">
@@ -61,11 +67,14 @@ class App extends Component<{}, AppState> {
         </div>
         <div className="app__content">
           <div className="app__frames">
-            <iframe
-              title={name}
-              src={url}
-              className="app__frame"
-            />
+            {this.state.loadedApps.map(app => (
+              <iframe
+                key={app.name}
+                title={app.name}
+                src={app.url}
+                className={this.isCurrentApp(app) ? 'app__frame app__frame--current' : 'app__frame'}
+              />
+            ))}
           </div>
         </div>
       </div>

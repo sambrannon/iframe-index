@@ -7,9 +7,9 @@ export const site: siteConfig = {
 export const remoteApps: remoteAppsConfig = {
   apps: [
     {
-      name: 'App Name',
-      url: 'https://example-url.com',
-      icon: require('../config/icons/icon-nameOfIcon.svg'),
+      name: 'Placeholder',
+      url: 'https://google.com',
+      icon: require('../config/icons/placeholder.svg'),
     },
   ]
 };
